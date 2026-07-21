@@ -53,7 +53,7 @@ Two datasets were used:
 
 - **Algorithm:** XGBoost Classifier (binary: home win vs. away win — draws excluded, since knockout matches always produce a winner)
 - **Tuning:** `RandomizedSearchCV` over `n_estimators`, `max_depth`, `learning_rate`, `subsample`, `colsample_bytree`, `gamma`, `min_child_weight`
-- **Split:** 85% train / 15% test, stratified
+- **Split:** 80% train / 20% test, stratified
 - **Key features:** `elo_diff` is by far the strongest predictor, followed by `overall_diff` and `defense_diff`
 
 ### Handling home-field advantage
