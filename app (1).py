@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import joblib
 import json
+import xgboost
 from collections import Counter
 
 # ---------------------------------------------------------
@@ -29,6 +30,14 @@ def load_x_columns():
 model = load_model()
 teams_data = load_teams_data()
 X_columns = load_x_columns()
+
+# ---------------------------------------------------------
+# DEBUG - temporary diagnostic lines (remove after fixing)
+# ---------------------------------------------------------
+st.write("🔍 XGBoost version:", xgboost.__version__)
+st.write("🔍 Number of teams in data:", len(teams_data))
+st.write("🔍 Cape Verde elo:", teams_data[teams_data['team'] == 'Cape Verde']['elo'].values)
+st.write("🔍 Spain elo:", teams_data[teams_data['team'] == 'Spain']['elo'].values)
 
 # ---------------------------------------------------------
 # Flag mapping (team name -> ISO code used by flagcdn.com)
@@ -204,23 +213,15 @@ with tab2:
     st.subheader("Simulate the World Cup from Round of 32 to the Final")
 
     default_bracket = [
-    ("South Africa", "Canada"),
-    ("Brazil", "Japan"),
-    ("Germany", "Paraguay"),
-    ("Netherlands", "Morocco"),
-    ("Côte D'Ivoire", "Norway"),
-    ("France", "Sweden"),
-    ("Mexico", "Ecuador"),
-    ("England", "Congo Dr"),
-    ("Belgium", "Senegal"),
-    ("United States", "Bosnia And Herzegovina"),
-    ("Spain", "Austria"),
-    ("Portugal", "Croatia"),
-    ("Switzerland", "Algeria"),
-    ("Australia", "Egypt"),
-    ("Argentina", "Cape Verde"),
-    ("Colombia", "Ghana"),
-]
+        ("South Africa", "Canada"), ("Brazil", "Japan"),
+        ("Germany", "Paraguay"), ("Netherlands", "Morocco"),
+        ("Côte D'Ivoire", "Norway"), ("France", "Sweden"),
+        ("Mexico", "Ecuador"), ("England", "Congo Dr"),
+        ("Belgium", "Senegal"), ("United States", "Bosnia And Herzegovina"),
+        ("Spain", "Austria"), ("Portugal", "Croatia"),
+        ("Switzerland", "Algeria"), ("Australia", "Egypt"),
+        ("Argentina", "Cape Verde"), ("Colombia", "Ghana"),
+    ]
 
     mode = st.radio("Simulation mode", ["Deterministic (highest probability)", "Monte Carlo simulation (10,000 runs)"])
 
