@@ -213,15 +213,23 @@ with tab2:
     st.subheader("Simulate the World Cup from Round of 32 to the Final")
 
     default_bracket = [
-        ("South Africa", "Canada"), ("Brazil", "Japan"),
-        ("Germany", "Paraguay"), ("Netherlands", "Morocco"),
-        ("Côte D'Ivoire", "Norway"), ("France", "Sweden"),
-        ("Mexico", "Ecuador"), ("England", "Congo Dr"),
-        ("Belgium", "Senegal"), ("United States", "Bosnia And Herzegovina"),
-        ("Spain", "Austria"), ("Portugal", "Croatia"),
-        ("Switzerland", "Algeria"), ("Australia", "Egypt"),
-        ("Argentina", "Cape Verde"), ("Colombia", "Ghana"),
-    ]
+    ("Germany", "Paraguay"),
+    ("France", "Sweden"),
+    ("South Africa", "Canada"),
+    ("Netherlands", "Morocco"),
+    ("Spain", "Austria"),
+    ("Portugal", "Croatia"),
+    ("Belgium", "Senegal"),
+    ("United States", "Bosnia And Herzegovina"),
+    ("Brazil", "Japan"),
+    ("Côte D'Ivoire", "Norway"),
+    ("Mexico", "Ecuador"),
+    ("England", "Congo Dr"),
+    ("Australia", "Egypt"),
+    ("Argentina", "Cape Verde"),
+    ("Switzerland", "Algeria"),
+    ("Colombia", "Ghana"),
+]
 
     mode = st.radio("Simulation mode", ["Deterministic (highest probability)", "Monte Carlo simulation (10,000 runs)"])
 
